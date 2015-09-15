@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Collage</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var img = $("<img />").attr('src', '/collage')
+            .on('load', function () {
+                if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) alert('broken image!');
+                else {
+                    $("#collage").append(img);
+                    $("#loader").remove();
+                }
+            });
+        }
+    </script>
+</head>
+<body style="background: url(http://i.stack.imgur.com/IehB7.png)">
+    <div id="collage" align="center">
+        <h1 style="font-family: Tahoma;">Утворений колаж</h1>
+        <img src="http://loadinggif.com/images/image-selection/32.gif" id="loader" />
+    </div>
+</body>
+</html>

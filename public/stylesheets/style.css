@@ -1,0 +1,21 @@
+body {
+    background-image: url(http://orig08.deviantart.net/66c4/f/2009/276/8/1/game_wallpaper_collage_by_flostyler0408.png);
+    background-size: 100%;
+}
+
+#main {
+    margin-top: 10%;
+}
+
+.form input {
+    margin-top: 10px;
+}
+
+.form button {
+    margin-top: 10px;
+}
+
+h1, h2 {
+    color: #fff;
+    font-weight: bold;
+}

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        function initialize() {
+            var imageWidth = $("#width").val();
+            var imageHeight = $("#height").val();
+            var login = $("#login").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/init',
+                data: 'login=' + login + '&width=' + imageWidth + '&height=' + imageHeight,
+                success: function (data) {
+                    window.location.href = '/collage.html';
+                }
+            });
+
+        }
+
+        function reset() {
+            $("#width").val("");
+            $("#height").val("");
+            $("#login").val("");
+        }
+    </script>
+</head>
+<body>
+    <div align="center" id="main">
+        <h1>Ласкаво просимо!</h1>
+        <h2>Щоб створити колаж, заповніть дані поля</h2>
+        <div class="input-group form">
+            <input type="text" id="login" class="form-control" placeholder="Your twitter login" />
+            <input type="text" id="width" class="form-control" placeholder="Image width (in pixels)" />
+            <input type="text" id="height" class="form-control" placeholder="Image height (in pixels)" />
+            <button type="button" onclick="initialize()" class="btn btn-success btn-lg">Create</button>
+            <button type="button" onclick="reset()" class="btn btn-success btn-lg">Reset</button>
+        </div>
+    </div>
+</body>
+</html>
